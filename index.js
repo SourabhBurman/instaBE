@@ -3,9 +3,11 @@ const { connection } = require('./Config/db');
 const { userRoute } = require('./Routes/routes.user');
 const { blacklist } = require('./Config/blacklist');
 const { pictureRoute } = require('./Routes/routes.picture');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use('/users',userRoute);
 app.use('/pictures',pictureRoute)
